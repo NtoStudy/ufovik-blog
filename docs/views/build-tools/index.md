@@ -1,4 +1,6 @@
-# <Typewriter text="前端构建工具" delay="400" type="neon" loop />
+---
+title: 前端构建工具
+---
 
 ## 为什么要构建
 

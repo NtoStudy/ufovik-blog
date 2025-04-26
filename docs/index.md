@@ -6,9 +6,9 @@ bgImage:
   dark: '/bg_dark.jpg'
 
 hero:
-  name: "fovik's docs"
+  name: "fovik's blog"
   text: 在路上
-  tagline: "\n一个好的设计产品是迭代出来的，好的工程师也是持续不断的学习和总结。"
+  tagline: "\n喧嚣在远处坍缩，独白于静默生长。"
   image:
     src: /avatar.jpg
     alt: yi's avatar
