@@ -3,7 +3,7 @@ layout: blog
 lastUpdated: false
 bgImage:
   light: "/bg.jpg"
-  dark: "/bg2_dark.jpg"
+  dark: "/bg_dark.jpg"
 widgets:
   - name: "音乐播放器"
     link: "/posts/2024-10-17-music-player"
