@@ -1,5 +1,12 @@
-# <Typewriter text="CSS3 教程" delay="200" type="neon" loop />
-
+---
+title: CSS
+date: 2025-04-27
+tags:
+  - CSS
+  - 前端
+---
+整理了 CSS 常用的属性以及用法。
+---
 ## 文档
 
 [unset - CSS：层叠样式表 | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/CSS/unset)

@@ -1,4 +1,13 @@
-<img src="https://github.com/user-attachments/assets/0968b1c0-c2c6-42bc-94c5-5dcb3cfcff18" alt="SSR">
+---
+title: SSR
+date: 2025-04-26
+tags:
+  - 前端
+  - 服务端渲染
+---
+易于SEO, 搜索引擎优化（当然, 搜索引擎也是不断在进化的）
+---
+
 
 ### SSR 简介
 
@@ -12,7 +21,7 @@ SSR 并不是什么新的事物, 早在 JSP、ASP、PHP Web1.0 的时候就是SS
 
 SSR 不是新的概念, 他不是100%的创新, 是一种技术组合。
 
-<img src="https://github.com/user-attachments/assets/448350a1-2e4b-420a-809d-a6be5e6210fc" />
+<img src="https://gitee.com/ntostudy/picgo-md/raw/master/img/202504270949470.png" />
 
 SSR 的优点：
 

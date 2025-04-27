@@ -19,6 +19,6 @@ import MNavLinks from '../../components/MNavLinks.vue'
 </script>
 
 
-# <Typewriter text="开发者的梦中情栈" delay="200" type="neon" loop />
+# <Typewriter text="开发者的梦中情栈" :delay="200" type="neon" loop />
 
 <MNavLinks v-for="{title, items} in NAV_DATA" :title="title" :items="items"/>

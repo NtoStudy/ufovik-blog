@@ -1,3 +1,14 @@
+---
+title: Vite+Ts+Vue3 项目中配置 Mock 模拟数据
+date: 2024-07-29
+tags:
+  - 前端
+  - Mock
+---
+在vue3项目使用mock模拟数据
+---
+
+
 # Vite+Ts+Vue3 项目中配置 Mock 模拟数据
 
 如下是在 Vite+Ts+Vue3 项目中配置 Mock 模拟数据的方法

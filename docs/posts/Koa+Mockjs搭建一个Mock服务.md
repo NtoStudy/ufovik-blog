@@ -1,10 +1,18 @@
+---
+title: Koa+Mockjs搭建一个Mock服务
+date: 2025-04-26
+tags:
+  - 前端
+  - Mock
+---
+在koa中使用mock模拟数据
+---
+
 # Koa+Mockjs搭建一个Mock服务
 
 如下是一个简单搭建的过程, 为了开发快速, 不使用 TypeScript, 可以使用 JSDOC
 
 对应 commit: 
-
-[点击查看对应源码](https://github.com/ZRMYDYCG/questionnaire/commit/ad557865a85b18dd4ba68d0080d1f5e97647b35b)
 
 ```bash
 mkdir project-mock
