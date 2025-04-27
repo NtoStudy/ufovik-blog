@@ -21,7 +21,7 @@ SSR 并不是什么新的事物, 早在 JSP、ASP、PHP Web1.0 的时候就是SS
 
 SSR 不是新的概念, 他不是100%的创新, 是一种技术组合。
 
-<img src="https://gitee.com/ntostudy/picgo-md/raw/master/img/202504270949470.png" />
+<img src="https://blog-pic-1338675647.cos.ap-nanjing.myqcloud.com/blog/202504271131192.png" />
 
 SSR 的优点：
 

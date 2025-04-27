@@ -3,7 +3,7 @@ title: tailwindcss
 date: 2025-04-26
 tags:
   - 前端
-  - tailwindcss
+  - CSS
 ---
 一个功能类的 CSS 框架。
 ---
