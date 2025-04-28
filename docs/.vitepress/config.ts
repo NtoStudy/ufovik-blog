@@ -9,15 +9,14 @@ import nav from "./layout/nav";
 const vitepressSidebarOptions = [
   // {
   //   documentRootPath: "docs",    // 文档根目录路径
-  //   scanStartPath: "page",      // 改为扫描 page 目录
-  //   resolvePath: "/page/",      // 解析路径前缀也相应修改
+  //   scanStartPath: "/views/nav",      // 改为扫描 page 目录
+  //   resolvePath: "/views/nav/",      // 解析路径前缀也相应修改
   //   collapsed: true,
   //   useTitleFromFileHeading: true,
   //   useFolderTitleFromIndexFile: true,
   //   useFolderLinkFromIndexFile: true,
   //   rootGroupCollapsed: true,
   // },
-
 ];
 
 export default defineConfigWithTheme({
@@ -73,15 +72,16 @@ export default defineConfigWithTheme({
         detailedView: false
       },
     },
-
+    outline: {
+      level: 'deep',
+      label: '本页目录'  // 可选：自定义侧边栏标题
+    },
     // 编辑链接配置
     editLink: {
       pattern:
         "https://github.com/NtoStudy/ufovik-blog",
       text: "帮我优化文章~"  // 编辑链接文本
     },
-
-
 
     // 博客配置
     blog: {

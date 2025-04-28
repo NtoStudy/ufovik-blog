@@ -1,8 +1,10 @@
 ---
-title: About Me
+layout: doc
+title: 
+outline: deep
 ---
 
-### 关于
+# 关于
 
 <div align="center">
    <h1>Hi there, I'm <a href="#">fovik</a> </h1>

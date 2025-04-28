@@ -16,7 +16,7 @@ const formatTitle = computed(() => {
 </script>
 
 <template>
-  <h2 v-if="title" :id="formatTitle" tabindex="-1">
+  <h2 v-if="title" :id="formatTitle" >
     {{ title }}
     <a class="header-anchor" :href="`#${formatTitle}`" aria-hidden="true"></a>
   </h2>
@@ -29,7 +29,6 @@ const formatTitle = computed(() => {
 .m-nav-links {
   --m-nav-gap: 18px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
   grid-row-gap: var(--m-nav-gap);
   grid-column-gap: var(--m-nav-gap);
   grid-auto-flow: row dense;
@@ -61,21 +60,6 @@ const formatTitle = computed(() => {
   }
 }
 
-@media (min-width: 1440px) {
-  .m-nav-links {
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  }
-}
 
-@media (min-width: 960px) {
-  .m-nav-links {
-    --m-nav-gap: 20px;
-  }
-}
 
-@media (min-width: 960px) {
-  .m-nav-links {
-    --m-nav-gap: 20px;
-  }
-}
 </style>
