@@ -8,8 +8,6 @@ tags:
 在koa中使用mock模拟数据
 ---
 
-# Koa+Mockjs搭建一个Mock服务
-
 如下是一个简单搭建的过程, 为了开发快速, 不使用 TypeScript, 可以使用 JSDOC
 
 对应 commit: 

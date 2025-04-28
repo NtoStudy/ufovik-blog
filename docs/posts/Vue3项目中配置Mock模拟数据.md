@@ -8,9 +8,6 @@ tags:
 在vue3项目使用mock模拟数据
 ---
 
-
-# Vite+Ts+Vue3 项目中配置 Mock 模拟数据
-
 如下是在 Vite+Ts+Vue3 项目中配置 Mock 模拟数据的方法
 
 ```bash

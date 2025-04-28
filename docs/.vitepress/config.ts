@@ -59,7 +59,6 @@ export default defineConfigWithTheme({
   themeConfig: {
     // 侧边栏配置，使用前面定义的选项生成侧边栏
     sidebar: generateSidebar(vitepressSidebarOptions),
-
     // 搜索配置
     search: {
       provider: "local",  // 使用本地搜索，无需外部服务
@@ -71,6 +70,7 @@ export default defineConfigWithTheme({
             return md.render(`# ${env.frontmatter.title}`) + html;
           return html;
         },
+        detailedView: false
       },
     },
 
