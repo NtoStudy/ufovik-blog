@@ -39,9 +39,11 @@ pnpm add -D nodemon
 package.json 新增
 
 ```json
-"scripts": {
-  "dev": "nodemon index.js"
-},
+{
+  "scripts":{
+    "dev": "nodemon index.js"
+  }
+}
 ```
 
 ```bash

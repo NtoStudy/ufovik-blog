@@ -66,7 +66,7 @@ Mock.mock("/api/list", "post", (params: any) => {
 
 在对应的vue组件中使用即可
 
-```ts
+```text
 <script setup lang="ts">
 import { ref, onMounted } from "vue"
 import axios from "axios"

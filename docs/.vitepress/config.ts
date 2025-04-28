@@ -28,11 +28,17 @@ export default defineConfigWithTheme({
   // Markdown 配置
   markdown: {
     math: true,      // 启用数学公式支持，可使用 KaTeX 语法
-  },
 
-  // 站点地图配置，用于SEO
-  sitemap: {
-    hostname: "https://vitepress.open17.vip", // 站点地图主机名
+  },
+  vue: {
+    template: {
+      compilerOptions: {
+        isCustomElement: (tag) => {
+          // 将一些常见的 HTML 标签标记为自定义元素，避免验证
+          return ['link', 'img', 'div', 'span'].includes(tag)
+        }
+      }
+    }
   },
 
   // 头部标签配置，添加到 HTML <head> 中
@@ -115,10 +121,8 @@ export default defineConfigWithTheme({
         timeStyle: "medium",
       },
     },
-
     // 导航栏配置
     nav: nav,
-
     // 社交链接配置
     socialLinks: [
       { icon: "github", link: "https://github.com/NtoStudy" },

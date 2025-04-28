@@ -92,16 +92,17 @@ class Watcher {
 
 ### watch使用
 
-```xml
+```vue
 <template>
   <div>
     <p>Count: {{ count }}</p>
     <p>Doubled Count: {{ doubledCount }}</p>
-    <button @click="incrementCount">Increment Count</button>
+    <button > Increment Count</button>
   </div>
 </template>
 
 <script setup>
+
 import { ref, watch } from 'vue';
 
 const count = ref(0);
@@ -116,7 +117,7 @@ watch(count, (newVal, oldVal) => {
   doubledCount.value = newVal * 2;
 });
 </script>
-</template>
+
 ```
 
 在这个示例中，我们使用 `<script setup>` 来导入 `ref` 和 `watch`，并创建了 `count` 和 `doubledCount` 的响应式变量。然后，我们使用 `watch` 来监听 `count` 的变化，并在 `count` 变化时更新 `doubledCount` 的值。
@@ -197,7 +198,7 @@ class ComputedRefImpl<T> {
 
 ### Computed使用
 
-```xml
+```vue
 <template>
   <div>
     <p>Count: {{ count }}</p>
@@ -220,7 +221,6 @@ const incrementCount = () => {
   count.value++;
 };
 </script>
-</template>
 ```
 
 在这个示例中，我们同样使用 `<script setup>` 来导入 `ref` 和 `computed`，并创建了 `count` 和 `doubledCount` 的响应式变量。然后，我们使用 `computed` 来创建计算属性 `doubledCount`，该属性依赖于 `count` 的值。

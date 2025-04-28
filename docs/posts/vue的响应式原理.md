@@ -312,7 +312,7 @@ Reactive 相当于当前的 Vue.observable () API，经过reactive处理后的�
 
 我们用一个todoList的demo试着尝尝鲜。
 
-```js
+```vue
 
 const { reactive , onMounted } = Vue
 setup(){
@@ -368,46 +368,49 @@ setup(){
 
 options形式的和vue2.0并没有什么区别
 
-```js
-export default {
+```vue
+<script>
+  export default {
     data(){
-        return{
-            count:0,
-            todoList:[]
+      return{
+        count:0,
+        todoList:[]
+      }
+    },
+    methods:{
+      add(){
+        this.count++
+      },
+      del(){
+        this.count--
+      },
+      addTodo(id,title,content){
+        this.todoList.push({
+          id,
+          title,
+          content,
+          done:false
+        })
+      },
+      complete(id){
+        for(let i = 0; i< this.todoList.length; i++){
+          const currentTodo = this.todoList[i]
+          if(id === currentTodo.id){
+            this.todoList[i] = {
+              ...currentTodo,
+              done:true
+            }
+            break
+          }
         }
+      }
     },
     mounted(){
-        console.log('mounted')
-    }
-    methods:{
-        add(){
-            this.count++
-        },
-        del(){
-            this.count--
-        },
-        addTodo(id,title,content){
-           this.todoList.push({
-               id,
-               title,
-               content,
-               done:false
-           })
-        },
-        complete(id){
-            for(let i = 0; i< this.todoList.length; i++){
-                const currentTodo = this.todoList[i]
-                if(id === currentTodo.id){
-                    this.todoList[i] = {
-                        ...currentTodo,
-                        done:true
-                    }
-                    break
-                }
-            }
-        }
-    }
-}
+      console.log('mounted')
+    },
+
+  }
+</script>
 ```
 
 ### 三 响应式原理初探
@@ -436,11 +439,13 @@ vue3.0可以根据业务需求引进不同的API方法。这里需要
 
 上文中我们提及到。用Reactive处理过并返回的对象是一个proxy对象，假设存在很多组件，或者在一个组件中被多次reactive，就会有很多对proxy对象和它代理的原对象。为了能把proxy对象和原对象建立关系，vue3.0采用了WeakMap去储存这些对象关系。WeakMaps 保持了对键名所引用的对象的弱引用，即垃圾回收机制不将该引用考虑在内。只要所引用的对象的其他引用都被清除，垃圾回收机制就会释放该对象所占用的内存。也就是说，一旦不再需要，WeakMap 里面的键名对象和所对应的键值对会自动消失，不用手动删除引用。
 
-```js
+```text
+<script>
 const rawToReactive = new WeakMap<any, any>()
 const reactiveToRaw = new WeakMap<any, any>()
 const rawToReadonly = new WeakMap<any, any>() /* 只读的 */
 const readonlyToRaw = new WeakMap<any, any>() /* 只读的 */
+</script>
 ```
 
 vue3.0 用readonly来设置被拦截器拦截的对象能否被修改，可以满足之前的props不能被修改的单向数据流场景。  
@@ -698,7 +703,7 @@ export function effect<T = any>(
 
 ##### 4 ReactiveEffect
 
-```js
+```ts
 function createReactiveEffect<T = any>(
   fn: (...args: any[]) => T, /**回调函数 */
   options: ReactiveEffectOptions
@@ -815,13 +820,17 @@ function createGetter(isReadonly = false, shallow = false) {
 **与vue2.0不同的是,即便是深度响应式我们也只能在获取上一级get之后才能触发下一级的深度响应式。**  
 比如
 
-```js
-setup(){
- const state = reactive({ a:{ b:{} } })
- return {
-     state
- }
-}
+```text
+<script>
+  setup(){
+    const state = reactive({ a:{ b:{} } })
+    return {
+      state
+    }
+  }
+</script>
+
+
 ```
 
 **在初始化的时候，只有a的一层级建立了响应式，b并没有建立响应式，而当我们用state.a的时候，才会真正的将b也做响应式处理，也就是说我们访问了上一级属性后，下一代属性才会真正意义上建立响应式**
@@ -883,7 +892,7 @@ deps 存放effect的set数据类型。
 例子：  
 父组件A
 
-```html
+```text
 <div id="app">
   <span>{{ state.a }}</span>
   <span>{{ state.b }}</span>
@@ -995,7 +1004,7 @@ set也是分两个逻辑，set和shallowSet,两种方法都是由createSetter产
 
 #### createSetter创建set
 
-```js
+```ts
 function createSetter(shallow = false) {
   return function set(
     target: object,
@@ -1032,7 +1041,7 @@ function createSetter(shallow = false) {
 
 #### trigger
 
-```js
+```ts
 /* 根据value值的改变，从effect和computer拿出对应的callback ，然后依次执行 */
 export function trigger(
   target: object,

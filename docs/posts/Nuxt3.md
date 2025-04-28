@@ -340,7 +340,7 @@ Nuxt提供了一个可定制的路由中间件框架，可以在整个应用程�
 
 直接在使用它们的页面中定义。
 
-```ts
+```vue
 <script setup>
    definePageMeta({
       middleware: [
@@ -361,7 +361,7 @@ Nuxt提供了一个可定制的路由中间件框架，可以在整个应用程�
 ---| auth.ts
 ```
 
-```ts
+```vue
 <script setup>
    definePageMeta({
       middleware: ['auth'],
@@ -397,9 +397,10 @@ Nuxt提供了两个全局可用的辅助函数，它们可以直接从中间件�
 
 
 ```ts
-navigateTo(to: RouteLocationRaw | undefined | null,options?: NavigateToOptions) => 
+const navigateTo = (to: RouteLocationRaw | undefined | null, options?: NavigateToOptions) =>
+{
     Promise<void | NavigationFailure> | RouteLocationRaw
-
+}
 interface NavigateToOptions {
   replace?: boolean
   redirectCode?: number
@@ -429,7 +430,7 @@ interface NavigateToOptions {
 /**
 * enums/auth.ts
 **/
-export enum Wh	itePageEnum {
+export enum WhitePageEnum {
    BASE_HOME = 'index',
    SERVER_ERROR_PAGE = 'error',
    FETCH_TEST_PAGE = 'fetch',
@@ -487,14 +488,14 @@ useUserStore 内容可以参考本文档状态管理-引入pinia部分
 
 会生成路由：
 
-```ts
+```json
 {
    "routes": [
      {
         "name": "users-group-id",
         "path": "/users-:group()/:id()",
         "component": "~/pages/users-[group]/[id].vue"
-     },
+     }
    ]
 }
 ```
@@ -542,7 +543,7 @@ Nuxt3通过 `definePageMeta` 中的 `validate` 属性在你想要验证的每个
 
 validate 属性接受 route 作为参数。它返回一个布尔值，以确定这是否是要用此页呈现的有效路由。如果返回 false ，并且无法找到另一个匹配项，这将导致`404`错误。也可以直接返回一个带有 `statusCode/statusMessage`的对象，以立即响应一个错误(其他匹配不会被检查)。当 group 或者 id 为空时，页面会直接显示404错误。
 
-```ts
+```vue
 <script setup>
   definePageMeta({
      validate: async (route) => {
@@ -626,7 +627,7 @@ export default {
 
 与 vue3.js 一样，在 setup 可以使用 useRouter、useRoute 来获取路由信息。
 
-```ts
+```vue
 <script setup>
   const route = useRoute();
   const router = useRouter();
@@ -644,7 +645,7 @@ export default {
 
 ```json
     {
-      "name": "users-group-id"
+      "name": "users-group-id",
       "path": "/users-:group()/:id()"
     }
 ```
@@ -1078,7 +1079,7 @@ function useAsyncData(
   key: string, // 一个唯一的键，以确保数据获取可以正确地跨请求去重复数据
   handler: (nuxtApp?: NuxtApp) => Promise<DataT>, // 返回值的异步函数，通常是一个$fetch函数
   options?: AsyncDataOptions<DataT>
-): Promise<AsyncData<DataT>>
+): Promise<AsyncData<DataT>>{}
 
 type AsyncDataOptions = {
   server?: boolean; // 是否从服务器上获取数据(默认为true)
@@ -1101,7 +1102,7 @@ type AsyncData<DataT> = {
 
 $fetch 函数使用方式参考 [《MDN文档—使用Fetch》](https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch "https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch")
 
-```html
+```text
 <template>
   <NuxtLayout>
     <div class="fetch">
@@ -1142,7 +1143,7 @@ const handleChange = (value: Value) => {
 
 它根据URL和获取选项自动生成一个键，根据服务器路由为请求URL提供类型提示，并推断API响应类型。
 
-```ts
+```text
 function useFetch(
   url: string | Request | Ref<string | Request> | () => string | Request, // 要获取的URL
   options?: UseFetchOptions<DataT>
@@ -1769,12 +1770,12 @@ js文件里同时保存在客户端能再现渲染的js版本，js版本里是�
 + 场景二：仅对个别页面关闭ssr  
   使用路由规则：从Nuxt 3开始随着公测rc. 12 版本发布，支持路由规则和混合渲染。使用路由规则，您可以为一组nuxt路由定义规则，改变呈现模式或分配基于路由的缓存策略。
 
-  +   `redirect` - 重定向。
-  +   `ssr` - 禁用应用程序部分的服务器端渲染，并使用`ssr: false`使它们仅用于spa。
-  +   `cors` - 自动添加带有`cors: true`的cors报头-你可以通过用`headers`覆盖自定义输出
-  +   `headers` - 为站点的各个部分添加特定的标题
-  +   `static` and `swr` - `static`支持单个(按需)构建;`swr`启用静态构建，该构建持续一个可配置的TTL。  
-      **配置ssr示例:**
+    +   `redirect` - 重定向。
+    +   `ssr` - 禁用应用程序部分的服务器端渲染，并使用`ssr: false`使它们仅用于spa。
+    +   `cors` - 自动添加带有`cors: true`的cors报头-你可以通过用`headers`覆盖自定义输出
+    +   `headers` - 为站点的各个部分添加特定的标题
+    +   `static` and `swr` - `static`支持单个(按需)构建;`swr`启用静态构建，该构建持续一个可配置的TTL。  
+        **配置ssr示例:**
 
   ```ts
   export default defineNuxtConfig({

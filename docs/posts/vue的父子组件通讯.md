@@ -20,7 +20,7 @@ tags:
 
 **父组件（ParentComponent.vue）** ：
 
-```xml
+```vue
 	<template>
 	  <div>
 	    <child-component :message="parentMessage" :userInfo="userInfo"></child-component>
@@ -36,7 +36,7 @@ tags:
 
 **子组件（ChildComponent.vue）** ：
 
-```xml
+```vue
 	<template>
 	  <div>
 	    <p>{{ message }}</p>
@@ -62,7 +62,7 @@ tags:
 
 **父组件（ParentComponent.vue）** ：
 
-```xml
+```vue
 	<template>
 	  <div>
 	    <child-component @update="handleUpdate" @delete="handleDelete"></child-component>
@@ -82,7 +82,7 @@ tags:
 
 **子组件（ChildComponent.vue）** ：
 
-```xml
+```vue
 	<template>
 	  <div>
 	    <button @click="handleClick">更新父组件</button>
@@ -107,7 +107,7 @@ tags:
 
 **父组件（ParentComponent.vue）** ：
 
-```xml
+```vue
 	<template>
 	  <div>
 	    <sibling-a @message="handleMessage" />
@@ -127,7 +127,7 @@ tags:
 
 **兄弟组件A（SiblingA.vue）** ：
 
-```xml
+```vue
 	<template>
 	  <button @click="sendMessage">发送消息</button>
 	</template>
@@ -142,7 +142,7 @@ tags:
 
 **兄弟组件B（SiblingB.vue）** ：
 
-```xml
+```vue
 	<template>
 	  <p>{{ message }}</p>
 	</template>
@@ -175,7 +175,7 @@ app.mount("#app");
 
 **组件A（ComponentA.vue）** ：
 
-```xml
+```vue
 	<template>
 	  <button @click="sendMessage">发送消息</button>
 	</template>
@@ -190,7 +190,7 @@ app.mount("#app");
 
 **组件B（ComponentB.vue）** ：
 
-```xml
+```vue
 	<script setup>
 	import { onMounted, getCurrentInstance } from 'vue';
 	const { proxy } = getCurrentInstance();

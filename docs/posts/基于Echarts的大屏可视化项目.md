@@ -45,7 +45,7 @@ https://tailwindcss.com/
 
 将app.vue中的内容更改为
 
-~~~js
+~~~vue
 <template>
   <div class="bg-[url('src/assets/imgs/bg.jpg')] bg-cover bg-center h-screen text-white p-3 flex">
     <!--  左-->
@@ -73,7 +73,7 @@ https://tailwindcss.com/
 导入子组件，并且更改每个组件的图占比
 
 
-```js
+```vue
 <script setup>
 import HorizontalBar from './components/HorizontalBar.vue';
 import RadarBar from './components/RadarBar.vue';
@@ -129,7 +129,7 @@ import WordCloud from './components/WordCloud.vue';
 
 在src目录中新建utils/request.js
 
-~~~js
+~~~vue
 import axios from 'axios'
 
 const service = axios.create({
@@ -164,7 +164,7 @@ export default service
 
 在src目录中新建api/visualization.js
 
-~~~js
+~~~vue
 import request from "../utils/request.js";
 export const getVisualization = () => request({
     url:'/visualization',
@@ -176,7 +176,7 @@ export const getVisualization = () => request({
 
  在app.vue父组件中获取接口返回的数据
 
-~~~js
+~~~vue
 // 获取大屏可视化的数据
 const data = ref();
 const getData = async () => {
@@ -196,7 +196,7 @@ data.value中的数据是这样的
 
 之后就可以将获取的数据传递给子组件
 
-~~~js
+~~~vue
 <template>
   <div class="bg-[url('src/assets/imgs/bg.jpg')] bg-cover bg-center h-screen text-white p-3 flex overflow-hidden ">
     <!--  左-->
@@ -237,7 +237,7 @@ data.value中的数据是这样的
 在components的HorizontalBar.vue里面进行配置
 代码如下
 
-```js
+```vue
 <script setup>
 import {onMounted, ref, watch} from "vue";
 import * as echarts from 'echarts'
@@ -368,9 +368,9 @@ watch(
 
 在components/VerticalBar.vue 中进行配置，代码如下
 
-~~~js
+~~~vue
 <script setup>
-import {onMounted, ref, watch} from "vue";
+import { onMounted, ref, watch} from "vue";
 import * as echarts from 'echarts'
 
 const props = defineProps({
@@ -500,7 +500,7 @@ watch(
 
 RadarBar.vue代码如下
 
-```js
+```vue
 <script setup>
 import {onMounted, ref, watch} from "vue";
 import * as echarts from 'echarts'
@@ -681,7 +681,7 @@ watch(
 
 RingBar.vue代码如下
 
-```js
+```vue
 <script setup>
 import {onMounted, ref, watch} from "vue";
 import * as echarts from 'echarts'
@@ -878,7 +878,7 @@ watch(
 
 Relation.vue中代码如下
 
-~~~js
+~~~vue
 <script setup>
 import {onMounted, ref, watch} from "vue";
 import * as echarts from 'echarts'
@@ -1067,13 +1067,13 @@ watch(
 
 在使用词云图的时候需要安装一个插件echarts-worldcloud
 
-~~~js
+~~~vue
 pnpm i --save echarts-wordcloud@2.1.0
 ~~~
 
 在WordClooud.vue代码实现
 
-~~~js
+~~~vue
 <script setup>
 import {onMounted, ref, watch} from "vue";
 import * as echarts from 'echarts'
@@ -1152,13 +1152,13 @@ watch(
 
 这部分的数据在点开页面的时候会慢慢增长，实现这种效果需要安装另外一个组件countup.js
 
-~~~js 
+~~~vue 
 npm i --save countup.js@2.6.2
 ~~~
 
 TotalData.vue中的代码
 
-~~~js
+~~~vue
 <script setup>
 import {CountUp} from 'countup.js'
 import {onMounted, ref} from 'vue'
@@ -1257,7 +1257,7 @@ onMounted(() => {
 
 在MapChart.vue中写入
 
-~~~js
+~~~vue
 <script setup>
 import {onMounted, ref} from "vue";
 import * as echarts from 'echarts'
