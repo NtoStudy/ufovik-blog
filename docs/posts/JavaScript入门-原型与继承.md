@@ -20,7 +20,7 @@ JavaScript 常被描述为一种基于原型的语言 (prototype-based language)
 
 **🔵 **obj.**\[\[Prototype\]\] 原型**：每个对象都有这个隐藏（不可访问）属性，他就是指向该对象的**原型对象**的**引用**，也可以说是该对象的父级。
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/302376d63bd04f57af884c3d69a0af80~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![image.png](https://blog-pic-1338675647.cos.ap-nanjing.myqcloud.com/blog/202504291558652.webp)
 
 - obj.\***\*proto\*\***（前后双下划线）：设置、获取对象的原型。`__proto__` 是 `[[Prototype]]` 的 `getter/setter` **访问器属性**，是历史遗留下来的访问方式，不过还挺好用。
 
@@ -48,7 +48,7 @@ duck.name = "duck";
 duck.fly(); //duck fly!  //新鲜出炉的方法也被继承了
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/46852d42706d4cc9a92c00e54a2718c0~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](https://blog-pic-1338675647.cos.ap-nanjing.myqcloud.com/blog/202504291558142.webp)
 
 - Object.**getPrototypeOf**(obj)、Object.**setPrototypeOf**(obj,proto)，是新加入的替代 `__proto__`，用于获取、设置对象原型的方法。
 
@@ -74,7 +74,7 @@ console.log(getPrototype("a")); //String  Object { … } null
 
 上面示例代码可以看到，所有对象都继承自`Object`，`Object`又继承自`null`。
 
-![image](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/67b8c1c3ffbe4f94bcce10e5bb50db60~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![image](https://blog-pic-1338675647.cos.ap-nanjing.myqcloud.com/blog/202504291558641.webp)
 
 > **❗不要轻易更改原型，影响性能**。当使用 **`Object.setPrototypeOf`** 或 **`obj.__proto__`** “即时”更改原型是一个非常缓慢的操作，因为它破坏了对象属性访问操作的内部优化。
 
@@ -105,7 +105,7 @@ console.log(duck.constructor == Duck); //true
 console.log(duck.__proto__.constructor == Duck); //true
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f89855600914478bba604802ccdc0ba8~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](https://blog-pic-1338675647.cos.ap-nanjing.myqcloud.com/blog/202504291558348.webp)
 
 **🔸**obj.**constructor**：对象构造器，就是构造函数
 
@@ -170,7 +170,7 @@ console.log(duck.constructor == Duck); //false 因为构造函数的默认原型
 
 该示例的图形化分析如下图，`bird`实际上是由new Object()创建的，`bird`的构造函数就是`Object()`构造函数了。
 
-![image](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/61c096468f20428cb56a340267a40e58~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![image](https://blog-pic-1338675647.cos.ap-nanjing.myqcloud.com/blog/202504291558041.webp)
 
 ### 1.3、object万物之源
 
@@ -194,7 +194,7 @@ console.log(duck.__proto__.__proto__ == bird.__proto__); //true
 console.log(duck.__proto__.__proto__ == Object.prototype); //true
 ```
 
-![image](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0716b034d1c64bc9b492a40b4597df20~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![image](https://blog-pic-1338675647.cos.ap-nanjing.myqcloud.com/blog/202504291558221.webp)
 
 > **📢原型共享**：（内置）原型也是可以修改的，也可以借用（复制），属性方法都存储在`prototype` 中（Array.prototype、Object.prototype）。原型`prototype`是全局共享的，需要注意！
 
@@ -229,7 +229,7 @@ alert.defer(3000)("Hi!");
 
 继承是一层一层的，逐级往上，直到`Oject`（Object.**prototype**），形成了一个**原型链**。被继承的财富就藏在每一层原型上，当访问属性、方法时，先在自己内部查找，自己没有的属性/方法，会在原型链上向上查找，直到宇宙尽头`null`，都没找到就返回`undefined`。
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bb215a531df7467b9495e629edb9af4a~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![image.png](https://blog-pic-1338675647.cos.ap-nanjing.myqcloud.com/blog/202504291559697.webp)
 
 ```js
 function Bird() {
@@ -268,7 +268,7 @@ console.log(duck1.foods, duck2.foods); //['rose', 'apple'] ['私有food']  //duc
 
 上面示例代码的原型链图：
 
-![image](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7cbf3e5dabc748a99a5cd1991638097d~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![image](https://blog-pic-1338675647.cos.ap-nanjing.myqcloud.com/blog/202504291559408.webp)
 
 通过示例得到如下结论：
 
@@ -292,7 +292,7 @@ console.log(duck1.foods, duck2.foods); //['rose', 'apple'] ['私有food']  //duc
 - 有时共享是**需要**的， 如统一型号的玩具，其基本属性如尺寸、颜色外观都是统一的，所有商品都共用即可，不用单独创建属性。
 - 有时**不需要**，如每一个用户都有自己的姓名、积分数量。不需要时怎么办呢，请看后文的实现继承的N中姿势！
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8e6b5448927746f09b0a6d4e79569406~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![image.png](https://blog-pic-1338675647.cos.ap-nanjing.myqcloud.com/blog/202504291559969.webp)
 
 **⁉️ 怎么判断是不是亲生的？**
 
@@ -377,7 +377,7 @@ console.log(User === User.prototype.constructor); // true
 
 上面是一个非常简单的类，实例对象`user`和类`User`的原型关系，同构造器函数是一样的，如下图。
 
-![image](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ec47427dab1f453880c5fd5f9771b987~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![image](https://blog-pic-1338675647.cos.ap-nanjing.myqcloud.com/blog/202504291559106.webp)
 
 **简写的class类表达式**：同函数表达式写法。
 
@@ -445,7 +445,7 @@ console.log(duck.colors, new Duck().colors); //['red', 'yellow'] ['red'] colors�
 - **构造函数继承（获得静态属性）**：类`Duck` 继承自 类`Bird`，为构造函数之间继承，这样就继承了父类的静态属性、方法。
 - **原型继承**：`Duck.prototype` 继承自 `Bird.prototype`，这是对象实例继承的原型链。
 
-![image](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e56db7f00cff4c4dac7a3d9aa82492fa~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![image](https://blog-pic-1338675647.cos.ap-nanjing.myqcloud.com/blog/202504291559652.webp)
 
 > **⚠️箭头函数没有自己的this、supper**：注意this、supper的丢失，例如通过`setTimeout`在另一个上下文环境中执行，可用箭头函数；或复制有`supper`代码的方法。
 
@@ -483,7 +483,7 @@ console.log(SupperUser.Level, SupperUser.Level); //99 99
 
 贴心的JavaScript为我们准备了N多种实现继承的姿势，体验丰富、欲生欲死、欲罢不能！了解前三个就基本可以了。
 
-![image](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1077bbbe0e134fb2bf9730111ff0b36f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![image](https://blog-pic-1338675647.cos.ap-nanjing.myqcloud.com/blog/202504291559506.webp)
 
 |  
  | **实现方式** | **优缺点** |
