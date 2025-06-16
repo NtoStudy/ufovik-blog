@@ -104,7 +104,7 @@ export default defineConfigWithTheme({
     // 首页配置
     home: {
       maxTagsDisplayed: 10,  // 最大显示标签数
-      postsPerPage: 5,  // 每页显示的文章数
+      postsPerPage: 8,  // 每页显示的文章数
     },
 
     // Logo 配置
